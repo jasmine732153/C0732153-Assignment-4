@@ -41,7 +41,13 @@ namespace ConsoleApp1
             foreach (char c in line)
             {
                 if(char.IsLetter(c))
-                { }
+                { countletters++; }
+                if (char.IsWhiteSpace(c))
+
+                {
+                    countspaces++;
+                }
+                return countspaces;
             }
         }
     }
