@@ -15,22 +15,24 @@ namespace ConsoleApp1
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
+            p.ReadTextFiles();
         }
         public void Run()
         { this.ReadTextFiles(); }
         public void ReadTextFiles()
     {
-            using (StreamReader file = new StreamReader(@"U:\Users\732153\New folder"))
+            using (StreamReader file = new StreamReader(@"U:\Users\732153\Beowulf.txt"))
             {
                 int counter = 0;
                 string ln;
                 while ((ln = file.ReadLine()) != null)
-                {
-                    Console.WriteLine(ln);
-                    Beowulf.Add(ln);
-                }
+                    while (file.ReadLine() != null)
+                    {
+                        counter++;
+
+                    }
                 file.Close();
-                Console.WriteLine($"File has { counter} lines.");
+                Console.WriteLine($"File has {counter} lines.");
             }
     }
         public int FindNumberOfBlankSpaces(String line)
@@ -47,8 +49,8 @@ namespace ConsoleApp1
                 {
                     countspaces++;
                 }
-                return countspaces;
             }
+            return countspaces;
         }
     }
 }
